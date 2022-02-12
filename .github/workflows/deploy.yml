@@ -53,5 +53,5 @@ jobs:
           password: ${{ secrets.ACCOUNT_BOOK_ACTION_SECRET }}
       - name: Docker run
         run: |
-          docker rm account-book
+          docker ps -q --filter "name=account-book" | grep -q . && docker stop account-book && docker rm -fv account-book
           docker run -itd -p 8081:8080 --name account-book --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
