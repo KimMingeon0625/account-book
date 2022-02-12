@@ -1,5 +1,4 @@
 # Dockerfile 생성
 FROM openjdk:11
-ARG JAR_FILE=build/libs/*.jar
-COPY .buildx-cache app.jar
+COPY ${buildx-cache} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
