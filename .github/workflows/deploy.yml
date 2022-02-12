@@ -54,4 +54,4 @@ jobs:
       - name: Docker run
         run: |
           docker ps -q --filter "name=account-book" | grep -q . && docker stop account-book && docker rm -fv account-book
-          docker run -itd -p 8081:8081 --name data-client --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
+          docker run -itd -p 8080:8080 --name data-client --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
